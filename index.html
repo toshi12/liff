@@ -75,15 +75,27 @@
     }
 
     function getEnvironment() {
+      document.getElementBy.Id("os").append(liff.getOS())
+      document.getElementBy.Id("language").append(liff.getLanguage())
+      document.getElementBy.Id("version").append(liff.getVersion())
+      document.getElementBy.Id("accessToken").append(liff.getAccessToken())
+      document.getElementBy.Id("isInClient").append(liff.getisInClient())
+      if (liff.isInClient()) {
+        document.getElementById("btnLogout").style.display = "none"
+      } else {
+        document.getElementById("btnMsg").style.display = "none"
+        document.getElementById("btnScanCode").style.display = "none"
+        document.getElementById("btnClose").style.display = "none"
+      }
     }
 
     async function main() {
       await liff.init({ liffId: "1654241551-8YL7mOAV" })
-      // getEnvironment()
-      // getUserProfile()
-      // getContext()
-      // getFriendship()
-      // createUniversalLink()
+      getEnvironment()
+      getUserProfile()
+      getContext()
+      getFriendship()
+      createUniversalLink()
     }
     main()
   </script>
